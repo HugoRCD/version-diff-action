@@ -1,0 +1,17 @@
+name: 'Package Version Change Detector'
+description: 'Detects version changes in package.json file'
+inputs:
+  path:
+    description: 'Path to package.json file'
+    required: false
+    default: './'
+outputs:
+  has_changed:
+    description: 'True if version has changed'
+  old_version:
+    description: 'Previous version'
+  new_version:
+    description: 'Current version'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

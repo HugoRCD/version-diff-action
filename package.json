@@ -1,0 +1,24 @@
+{
+  "name": "version-diff-action",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node",
+    "dev": "bun --watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepare": "bun run build"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
