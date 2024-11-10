@@ -24116,15 +24116,15 @@ async function run() {
     }
     const currentPackage = JSON.parse(fs.readFileSync(packagePath, "utf8"));
     const currentVersion = currentPackage.version;
-    const context2 = github.context;
+    const { context } = github;
     const token = process.env.GITHUB_TOKEN;
     if (!token) {
       throw new Error("GITHUB_TOKEN is required");
     }
     const octokit = github.getOctokit(token);
     const { data: commits } = await octokit.rest.repos.listCommits({
-      owner: context2.repo.owner,
-      repo: context2.repo.repo,
+      owner: context.repo.owner,
+      repo: context.repo.repo,
       path: path.relative(process.env.GITHUB_WORKSPACE || "", packagePath),
       per_page: 2
     });
@@ -24135,8 +24135,8 @@ async function run() {
       return;
     }
     const { data: previousFile } = await octokit.rest.repos.getContent({
-      owner: context2.repo.owner,
-      repo: context2.repo.repo,
+      owner: context.repo.owner,
+      repo: context.repo.repo,
       path: path.relative(process.env.GITHUB_WORKSPACE || "", packagePath),
       ref: commits[1].sha
     });
@@ -24158,3 +24158,6 @@ async function run() {
   }
 }
 run();
+export {
+  run
+};

@@ -1,0 +1,24 @@
+name: Test Version Diff Action
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Test Version Diff Action
+        uses: ./
+        id: version_check
+        with:
+          path: './'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print Outputs
+        run: |
+          echo "Has Changed: ${{ steps.version_check.outputs.has_changed }}"
+          echo "Old Version: ${{ steps.version_check.outputs.old_version }}"
+          echo "New Version: ${{ steps.version_check.outputs.new_version }}"
