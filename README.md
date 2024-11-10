@@ -50,6 +50,19 @@ jobs:
 | `new_version` | Current version | `1.0.1` |
 
 ## Development
+
+To run tests:
+
+```bash
+bun test
+```
+
+To run tests in watch mode:
+
+```bash
+bun test --watch
+```
+
 ## License
 
 [Apache-2.0](LICENSE)

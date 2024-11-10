@@ -80,4 +80,6 @@ export async function run(): Promise<void> {
   }
 }
 
-run()
+run().then(() => {
+  console.log('Version check complete')
+})
