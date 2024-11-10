@@ -10,8 +10,8 @@ mock.module('@actions/core', () => ({
 mock.module('@actions/github', () => ({
   context: {
     repo: {
-      owner: 'test-owner',
-      repo: 'test-repo'
+      owner: 'HugoRCD',
+      repo: 'version-diff-action',
     }
   },
   getOctokit: mock(() => ({
@@ -47,7 +47,7 @@ describe('Version Diff Action', () => {
 
     const { run } = await import('../index')
 
-    await run()
+    await run({ debug: true })
 
     expect(core.setOutput).toHaveBeenCalledWith('has_changed', 'true')
     expect(core.setOutput).toHaveBeenCalledWith('old_version', '1.0.0')

@@ -1,5 +1,7 @@
 name: 'Package Version Change Detector'
 description: 'Detects version changes in package.json file'
+icon: 'package'
+color: 'blue'
 inputs:
   path:
     description: 'Path to package.json file'
