@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 2
 
       - name: Check package.json version
-        uses: your-username/package-version-checker-action@v1
+        uses: hugorcd/version-diff-action@v1
         id: version_check
         with:
           path: './'
