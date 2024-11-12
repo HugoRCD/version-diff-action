@@ -2,7 +2,7 @@ import { expect, test, describe, mock } from 'bun:test'
 import * as core from '@actions/core'
 
 mock.module('@actions/core', () => ({
-  getInput: mock(() => './'),
+  getInput: mock(() => './package.json'),
   setOutput: mock(() => {}),
   setFailed: mock(() => {})
 }))

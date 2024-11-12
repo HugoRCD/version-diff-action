@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+import { getInput } from '@actions/core'
 
 type PackageJson = {
   version: string;
@@ -26,8 +27,7 @@ export async function run(options: RunOptions = {}): Promise<void> {
   try {
     const packagePath = path.join(
       process.env.GITHUB_WORKSPACE || '',
-      core.getInput('path'),
-      'package.json'
+      core.getInput('path')
     )
     debugLog(`Package path: ${packagePath}`, options)
 
@@ -43,10 +43,7 @@ export async function run(options: RunOptions = {}): Promise<void> {
     debugLog(`Current version: ${currentVersion}`, options)
 
     const { context } = github
-    const token = process.env.GITHUB_TOKEN
-    if (!token) {
-      throw new Error('GITHUB_TOKEN is required')
-    }
+    const token = getInput('token')
     debugLog('GitHub token found', options)
 
     const octokit = github.getOctokit(token)

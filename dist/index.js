@@ -24106,6 +24106,7 @@ var require_github = __commonJS((exports) => {
 // src/index.ts
 var core = __toESM(require_core(), 1);
 var github = __toESM(require_github(), 1);
+var import_core = __toESM(require_core(), 1);
 import * as fs from "fs";
 import * as path from "path";
 function debugLog(message, options) {
@@ -24115,7 +24116,7 @@ function debugLog(message, options) {
 }
 async function run(options = {}) {
   try {
-    const packagePath = path.join(process.env.GITHUB_WORKSPACE || "", core.getInput("path"), "package.json");
+    const packagePath = path.join(process.env.GITHUB_WORKSPACE || "", core.getInput("path"));
     debugLog(`Package path: ${packagePath}`, options);
     if (!fs.existsSync(packagePath)) {
       throw new Error(`package.json not found at ${packagePath}`);
@@ -24125,10 +24126,7 @@ async function run(options = {}) {
     const currentVersion = currentPackage.version;
     debugLog(`Current version: ${currentVersion}`, options);
     const { context } = github;
-    const token = process.env.GITHUB_TOKEN;
-    if (!token) {
-      throw new Error("GITHUB_TOKEN is required");
-    }
+    const token = import_core.getInput("token");
     debugLog("GitHub token found", options);
     const octokit = github.getOctokit(token);
     debugLog(`Checking repository: ${context.repo.owner}/${context.repo.repo}`, options);

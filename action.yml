@@ -7,7 +7,11 @@ inputs:
   path:
     description: 'Path to package.json file'
     required: false
-    default: './'
+    default: './package.json'
+  token:
+    description: A GitHub token to use when running on private repos
+    required: false
+    default: ${{ github.token }}
 outputs:
   has_changed:
     description: 'True if version has changed'
