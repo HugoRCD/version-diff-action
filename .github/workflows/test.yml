@@ -13,7 +13,7 @@ jobs:
         uses: ./
         id: version_check
         with:
-          path: './'
+          path: './package.json'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
