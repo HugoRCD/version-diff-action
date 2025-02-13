@@ -21,10 +21,10 @@
     "@actions/github": "^6.0.0"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^2.1.1",
-    "@types/node": "^22.12.0",
+    "@hrcd/eslint-config": "^2.2.1",
+    "@types/node": "^22.13.1",
     "bun-types": "latest",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.1",
     "typescript": "^5.7.3"
   }
 }
