@@ -21,8 +21,8 @@
     "@actions/github": "^6.0.0"
   },
   "devDependencies": {
-    "@hrcd/eslint-config": "^2.2.1",
-    "@types/node": "^22.13.11",
+    "@hrcd/eslint-config": "^2.3.1",
+    "@types/node": "^22.13.14",
     "bun-types": "latest",
     "eslint": "^9.23.0",
     "typescript": "^5.8.2"
