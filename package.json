@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0"
+    "@actions/github": "^6.0.1"
   },
   "devDependencies": {
     "@hrcd/eslint-config": "^2.3.1",
-    "@types/node": "^22.15.14",
+    "@types/node": "^22.15.17",
     "bun-types": "latest",
     "eslint": "^9.26.0",
     "typescript": "^5.8.3"
